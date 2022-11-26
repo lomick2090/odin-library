@@ -30,6 +30,10 @@ function addBookToLibrary() {
     addCard();
 }
 
+function deleteBook () {
+
+}
+
 addButton.addEventListener('click', addBookToLibrary);
 
 function addCard() {
@@ -62,9 +66,16 @@ function addCard() {
         cardRead.checked = false;;
     }
 
+    let xButton = document.createElement('button');
+    xButton.innerHTML = 'X';
+    xButton.className = 'exitButton';
+
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
     card.appendChild(cardPages);
     card.appendChild(cardRead);
+    card.appendChild(xButton);
     cardHolder.appendChild(card);
 }
+
+//xButton.addEventListener('click', )
