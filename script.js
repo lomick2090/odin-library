@@ -29,17 +29,18 @@ function addBookToLibrary() {
     myLibrary.push(newBook);
     addCard();
 }
-
-function deleteBook () {
-
+function deleteBook() {
+    console.log(this.parentNode);
 }
+
+
 
 addButton.addEventListener('click', addBookToLibrary);
 
 function addCard() {
     let card = document.createElement('div');
     let i = myLibrary.length - 1;
-    card.data = i;
+    card.setAttribute('data-index', i);
     card.className = 'card';
 
     let newTitle = myLibrary[i].title;
@@ -68,7 +69,7 @@ function addCard() {
 
     let xButton = document.createElement('button');
     xButton.innerHTML = 'X';
-    xButton.className = 'exitButton';
+    xButton.className = 'exitbutton';
 
     card.appendChild(cardTitle);
     card.appendChild(cardAuthor);
@@ -76,6 +77,11 @@ function addCard() {
     card.appendChild(cardRead);
     card.appendChild(xButton);
     cardHolder.appendChild(card);
+
+    const exitButtons = document.getElementsByClassName('exitbutton');
+
+
+    exitButtons[exitButtons.length - 1].addEventListener('click', deleteBook);
 }
 
-//xButton.addEventListener('click', )
+
