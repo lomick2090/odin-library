@@ -30,7 +30,15 @@ function addBookToLibrary() {
     addCard();
 }
 function deleteBook() {
-    console.log(this.parentNode);
+    index = this.parentNode.getAttribute('data-index');
+    myLibrary.splice(index, 1);
+    let cards = document.getElementsByClassName('card');
+    for (var j = (parseInt(index) + 1); j < cards.length; j++) {
+        console.log(j)
+        console.log(cards[j])
+        cards[j].setAttribute('data-index', j - 1);
+    }
+    cards[index].remove()
 }
 
 
