@@ -30,7 +30,7 @@ function addBookToLibrary() {
     addCard();
 }
 function deleteBook() {
-    index = this.parentNode.getAttribute('data-index');
+    var index = this.parentNode.getAttribute('data-index');
     myLibrary.splice(index, 1);
     let cards = document.getElementsByClassName('card');
     for (var j = (parseInt(index) + 1); j < cards.length; j++) {
@@ -39,6 +39,15 @@ function deleteBook() {
         cards[j].setAttribute('data-index', j - 1);
     }
     cards[index].remove()
+}
+
+function toggleRead () {
+    var index = this.parentNode.getAttribute('data-index');
+    if (this.checked == true) {
+        myLibrary[index].read = true;
+    } else if (this.checked == false) {
+        myLibrary[index].read = false;
+    }
 }
 
 
@@ -68,11 +77,12 @@ function addCard() {
 
     let hasRead = myLibrary[i].read;
     let cardRead = document.createElement('input');
+    cardRead.className = 'readbox';
     cardRead.type = 'checkbox'; 
     if (hasRead) {
         cardRead.checked = true
     } else {
-        cardRead.checked = false;;
+        cardRead.checked = false;
     }
 
     let xButton = document.createElement('button');
@@ -87,8 +97,9 @@ function addCard() {
     cardHolder.appendChild(card);
 
     const exitButtons = document.getElementsByClassName('exitbutton');
+    const readChecks = document.getElementsByClassName('readbox');
 
-
+    readChecks[readChecks.length - 1].addEventListener('click', toggleRead);
     exitButtons[exitButtons.length - 1].addEventListener('click', deleteBook);
 }
 
