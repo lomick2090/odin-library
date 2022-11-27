@@ -2,6 +2,22 @@ body {
     background-color: black;
 }
 
+#book1 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 30%;
+    height: 150px;
+}
+
+#book2 {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 30%;
+    height: 150px;
+}
+
 form {
     display: grid;
     grid-template-columns: 200px 200px ;
