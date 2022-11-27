@@ -17,6 +17,8 @@ function book(title, author, pages, read) {
 
 function addBookToLibrary() {
 
+    event.preventDefault();
+
     //stores and deletes input instead of using the traditional 'submit' button
     let inputTitle = titleBox.value;
     titleBox.value = '';
