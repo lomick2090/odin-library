@@ -19,7 +19,7 @@ class book {
 
 function addBookToLibrary() {
 
-    event.preventDefault();
+    
 
     //stores and deletes input instead of using the traditional 'submit' button
     let inputTitle = titleBox.value;
@@ -118,11 +118,24 @@ function toggleRead () {
 }
 
 function checkValidForm() {
-
+    event.preventDefault
+    if (titleBox.value === '' || titleBox.value == null) {
+        alert('Please Fill Out Title')
+        return false;
+    } else if (authorBox.value === '' || titleBox.value == null) {
+        alert('Please Fill Out Author')
+        return false
+    } else if (pagesBox.value  === '' || pagesBox.value == null) {
+        alert('Please Fill Out Pages')
+        return false
+    } else {
+        return true;
+    }
 
 };
 
-addButton.addEventListener('click', () => {
+addButton.addEventListener('click', (e) => {
+    e.preventDefault();
     if(checkValidForm()) {
         addBookToLibrary();
     }
