@@ -117,4 +117,13 @@ function toggleRead () {
     }
 }
 
-addButton.addEventListener('click', addBookToLibrary);
+function checkValidForm() {
+
+
+};
+
+addButton.addEventListener('click', () => {
+    if(checkValidForm()) {
+        addBookToLibrary();
+    }
+});
